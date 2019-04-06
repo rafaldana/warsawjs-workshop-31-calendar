@@ -28,7 +28,6 @@ export class CalendarController {
 
   @Get('calendar')
   getMonth(@Query('month') month: CalendarDTO) {
-    // TODO implement me
     return this.calendarService.getMonth(month);
   }
 
@@ -40,7 +39,6 @@ export class CalendarController {
   @Put('event')
   updateEvent(@Query('id') eventId: string) {
     // TODO implement me
-    // reschedule workers?
   }
 
   @Delete('event')
