@@ -1,7 +1,11 @@
 import EventDTO from './event.dto';
 
-export default class CalendarDTO {
+class CalendarItem {
   readonly date: string;
-  readonly events: any;
-  // readonly events: Array<Partial<EventDTO>>;
+  readonly events: Array<Partial<EventDTO>>;
+}
+
+// tslint:disable-next-line:max-classes-per-file
+export default class CalendarDTO {
+  readonly data: CalendarItem[];
 }
