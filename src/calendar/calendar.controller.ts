@@ -22,12 +22,12 @@ export class CalendarController {
   }
 
   @Get('day')
-  getDay(@Query('date') date: string): DayDTO {
+  getDay(@Query('date') date: string): Promise<DayDTO> {
     return this.calendarService.getDay(date);
   }
 
   @Get('calendar')
-  getMonth(@Query('month') month: string): CalendarDTO {
+  getMonth(@Query('month') month: string): Promise<CalendarDTO> {
     return this.calendarService.getMonth(month);
   }
 
