@@ -8,7 +8,7 @@ import {
   Query,
 } from '@nestjs/common';
 import { CalendarService } from './calendar.service';
-import { CalendarDTO, DayDTO, SubscriptionDTO } from './dtos';
+import { CalendarDTO, DayDTO, EventDTO, SubscriptionDTO } from './dtos';
 
 // TODO add passport authentication - bonus?
 
@@ -27,16 +27,15 @@ export class CalendarController {
   }
 
   @Get('calendar')
-  getMonth(@Query('month') month: CalendarDTO) {
+  getMonth(@Query('month') month: string): CalendarDTO {
     return this.calendarService.getMonth(month);
   }
 
   @Post('event')
-  async createEvent() {
-    // TODO implement me
-    await this.calendarService.createEvent('stub');
+  async createEvent(@Body() eventDto: EventDTO) {
+    const event = await this.calendarService.createEvent(eventDto);
 
-    return { id: '1' };
+    return { id: event.id };
   }
 
   @Put('event')
