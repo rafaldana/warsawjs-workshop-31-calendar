@@ -8,3 +8,16 @@ Backend for WarsawJS Node.js workshop - calendar app
 ```
 npm i -g @nestjs/cli
 ```
+
+## Development
+
+To start server with live-reloading, simply run
+```
+npm run start:dev
+```
+
+### Start mongo and mongo-express in docker
+
+```
+docker-compose up
+```
