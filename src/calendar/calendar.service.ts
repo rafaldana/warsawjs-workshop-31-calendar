@@ -65,4 +65,16 @@ export class CalendarService {
 
     return event;
   }
+
+  async updateEvent(id: string, eventDto: EventDTO): Promise<string> {
+    await this.eventRepository.update(id, eventDto);
+
+    return id;
+  }
+
+  async deleteEvent(id: string): Promise<string> {
+    await this.eventRepository.delete(id);
+
+    return id;
+  }
 }

@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  Param,
   Post,
   Put,
   Query,
@@ -38,14 +39,18 @@ export class CalendarController {
     return { id: event.id };
   }
 
-  @Put('event')
-  updateEvent(@Query('id') eventId: string) {
-    // TODO implement me
+  @Put('event/:id')
+  async updateEvent(@Param('id') eventId: string, @Body() eventDto: EventDTO) {
+    const id = await this.calendarService.updateEvent(eventId, eventDto);
+
+    return { id };
   }
 
-  @Delete('event')
-  deleteEvent(@Query('id') eventId: string) {
-    // TODO implement me
+  @Delete('event/:id')
+  async deleteEvent(@Param('id') eventId: string) {
+    await this.calendarService.deleteEvent(eventId);
+
+    return { id: eventId };
   }
 
   @Post('subscriptions')
