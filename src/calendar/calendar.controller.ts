@@ -32,8 +32,11 @@ export class CalendarController {
   }
 
   @Post('event')
-  createEvent() {
+  async createEvent() {
     // TODO implement me
+    await this.calendarService.createEvent('stub');
+
+    return { id: '1' };
   }
 
   @Put('event')
